@@ -1,1 +1,1 @@
-# Prumo Pizza Repository
+# Prumo Store Repository

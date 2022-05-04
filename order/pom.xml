@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.prumostore</groupId>
-	<artifactId>orderservice</artifactId>
+	<artifactId>order</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>orderservice</name>
 	<description>Project of store </description>

@@ -1,13 +1,13 @@
-package com.prumostore.orderservice;
+package com.prumoitstore.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OrderserviceApplication {
+public class OrderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OrderserviceApplication.class, args);
+		SpringApplication.run(OrderApplication.class, args);
 	}
 
 }

@@ -8,11 +8,11 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.prumostore</groupId>
+	<groupId>com.prumoitstore</groupId>
 	<artifactId>order</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>orderservice</name>
-	<description>Project of store </description>
+	<name>order</name>
+	<description>Project of Store</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

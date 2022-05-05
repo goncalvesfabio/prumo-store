@@ -1,10 +1,10 @@
-package com.prumostore.orderservice;
+package com.prumoitstore.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrderserviceApplicationTests {
+class OrderApplicationTests {
 
 	@Test
 	void contextLoads() {

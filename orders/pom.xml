@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.prumoitstore</groupId>
-	<artifactId>order</artifactId>
+	<artifactId>orders</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>order</name>
+	<name>orders</name>
 	<description>Project of Store</description>
 	<properties>
 		<java.version>11</java.version>

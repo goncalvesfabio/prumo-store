@@ -1,4 +1,4 @@
-package com.prumoitstore.order.model;
+package com.prumoitstore.order.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

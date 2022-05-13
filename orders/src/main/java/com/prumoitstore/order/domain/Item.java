@@ -15,16 +15,12 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Client {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String surname;
-    private String lastname;
-    private String email;
-    private String phone;
-    private String nif;
-    private Address address;
-
+    private Integer quantity;
+    private Double price;
+    private OrderDetail orderDetail;
 }

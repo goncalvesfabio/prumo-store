@@ -13,10 +13,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "orderDetails")
 public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_detail_id")
     private Integer id;
     private Date createdAt;
     private  Date updateAt;
@@ -24,7 +26,13 @@ public class OrderDetail {
     private Double orderTotal;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_client_id")
     private Client client;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_item_id")
     private  Item item;
 
 }

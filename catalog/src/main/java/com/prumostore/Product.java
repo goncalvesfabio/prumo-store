@@ -1,7 +1,7 @@
 package com.prumostore;
 import javax.persistence.*;
 
-@Entity//
+@Entity
 @Table(name = "products")
 public class Product {
     @Id

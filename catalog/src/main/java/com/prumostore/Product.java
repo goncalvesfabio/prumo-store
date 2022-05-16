@@ -1,11 +1,9 @@
 package com.prumostore;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity //
-public class product {
+@Entity//
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long productId;

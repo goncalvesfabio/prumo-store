@@ -3,9 +3,9 @@
 
 ## Projects
 - custom: Project used only as an example.
-- orderservice:
-- catalogservice:
-- paymentservice:
+- order:
+- catalog:
+- payment:
 
 ## Notes
 

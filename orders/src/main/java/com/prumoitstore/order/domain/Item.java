@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
@@ -13,7 +14,8 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Table(name = "Items")
-public class Item {
+public class Item implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,8 @@ public class Item {
     private Integer id;
     private Integer quantity;
     private Double price;
-    @OneToOne(mappedBy = "item")
+
+    @ManyToOne
+    @JoinColumn(name="order_detail_id")
     private OrderDetail orderDetail;
 }

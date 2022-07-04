@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +16,8 @@ import java.util.Date;
 @Entity
 @Builder
 @Table(name = "orderDetails")
-public class OrderDetail {
+public class OrderDetail implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +31,11 @@ public class OrderDetail {
     private OrderStatus orderStatus;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_client_id")
+    @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_item_id")
-    private  Item item;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderDetail")
+   // @JoinColumn(name = "item_id")
+    private List<Item> items;
 
 }

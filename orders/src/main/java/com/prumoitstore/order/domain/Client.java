@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Data
@@ -13,12 +14,12 @@ import javax.persistence.*;
 @Entity
 @Builder
 @Table(name = "clients")
-public class Client {
-
+public class Client implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Client_id")
+    @Column(name = "client_id")
     private Integer id;
     private String surname;
     private String lastname;
@@ -27,11 +28,11 @@ public class Client {
     private String nif;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_address_id")
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_order_detail_id")
-    private OrderDetail orderDetail;
+   // @OneToOne(cascade = CascadeType.ALL)
+   // @JoinColumn(name = "order_detail_id")
+   // private OrderDetail orderDetail;
 
 }

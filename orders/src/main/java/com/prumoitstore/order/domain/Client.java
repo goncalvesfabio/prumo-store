@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -27,12 +29,9 @@ public class Client implements Serializable {
     private String phone;
     private String nif;
 
+    @Nullable
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
-
-   // @OneToOne(cascade = CascadeType.ALL)
-   // @JoinColumn(name = "order_detail_id")
-   // private OrderDetail orderDetail;
 
 }

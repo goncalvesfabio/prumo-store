@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,8 +24,11 @@ public class OrderDetail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_detail_id")
     private Integer id;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date createdAt;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private  Date updateAt;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date deletedAt;
     private Double orderTotal;
     @Enumerated(EnumType.STRING)

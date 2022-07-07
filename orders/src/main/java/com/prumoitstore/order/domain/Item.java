@@ -4,34 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "clients")
-public class Client implements Serializable {
+@Table(name = "Items")
+public class Item implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "client_id")
+    @Column(name = "item_id")
     private Integer id;
-    private String surname;
-    private String lastname;
-    private String email;
-    private String phone;
-    private String nif;
+    private Integer quantity;
+    private Double price;
 
-    @Nullable
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
-
+    @ManyToOne
+    @JoinColumn(name="order_detail_id")
+    private OrderDetail orderDetail;
 }

@@ -10,6 +10,6 @@ public class hello {
 
     @GetMapping("/hello")
     public String helloWord(){
-        return "onlineNow";
+        return "onlineAgora";
     }
 }

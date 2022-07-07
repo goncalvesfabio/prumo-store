@@ -5,6 +5,8 @@ import com.prumoitstore.order.domain.Client;
 import com.prumoitstore.order.repository.AddressRepository;
 import com.prumoitstore.order.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.jpa.util.BeanDefinitionUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,40 +30,28 @@ public class ClientService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Client not Found"));
     }
 
-
+/*
     @Transactional
     public Client addClient(Client client){
         return clientRepository.save(client);
     }
+ */
+    public Client addClient(Client client){
+        return clientRepository.save(client);
+    }
 
+
+    @Transactional
     public String deleteClient(Integer id){
         clientRepository.deleteById(id);
         return "client removed!!" + id;
     }
-/*
-    public Client updateClient( Client client){
-        Client existingClient = clientRepository.findById(client.getId()).orElse(null);
-        existingClient.setSurname(client.getSurname());
-        existingClient.setLastname(client.getLastname());
-        existingClient.setEmail(client.getEmail());
-        existingClient.setPhone(client.getPhone());
-        existingClient.setNif(client.getNif());
+    @Transactional
+    public Client updateClient( Integer id,Client client){
+        Client existingClient = clientRepository.findById(id).get();
+        BeanUtils.copyProperties(client, existingClient,"id");
         return clientRepository.save(existingClient);
     }
-*/
-    @Transactional
-    public Client updateClient( Client client){
-        Client existingClient = clientRepository.findById(client.getId()).orElse(null);
-        existingClient.setSurname(client.getSurname());
-        existingClient.setLastname(client.getLastname());
-        existingClient.setEmail(client.getEmail());
-        existingClient.setPhone(client.getPhone());
-        existingClient.setNif(client.getNif());
-        existingClient.setAddress(client.getAddress());
-        existingClient = clientRepository.save(existingClient);
-        addressRepository.save(existingClient.getAddress());
-        return existingClient;
-}
 
 
 }

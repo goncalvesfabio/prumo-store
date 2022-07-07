@@ -18,30 +18,30 @@ public class ClientController {
 
    private ClientService clientService;
 
-    @PostMapping("/addClient")
+    @PostMapping("/clients")
     public ResponseEntity<Client> saveClient(@RequestBody Client client){
         clientService.addClient(client);
         return new ResponseEntity<>(client, HttpStatus.CREATED);
     }
 
-    @GetMapping("/listClients")
+    @GetMapping("/clients")
     public ResponseEntity<List<Client>> findAllClients(){
         List<Client> clients = clientService.findAll();
        return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
     }
 
-    @GetMapping("/listClient/{id}")
+    @GetMapping("/clients/{id}")
     public Client findClientById(@PathVariable Integer id){
        return clientService.findById(id);
     }
 
-    @PutMapping("/update/client/{id}")
+    @PutMapping("/clients/{id}")
     public ResponseEntity<Client> updateClient(@PathVariable Integer id, @RequestBody Client client){
         clientService.updateClient(id, client);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/clients/{id}")
     public void deleteClient(@PathVariable Integer id){
        clientService.deleteClient(id);
     }

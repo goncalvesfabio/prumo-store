@@ -22,7 +22,7 @@ public class OrderDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_detail_id")
+    @Column(name = "orderDetail_id")
     private Integer id;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date createdAt;
@@ -38,8 +38,8 @@ public class OrderDetail implements Serializable {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderDetail")
-   // @JoinColumn(name = "item_id")
+    @OneToMany(mappedBy = "orderDetail")
+    //@JoinColumn(name = "items_id", nullable = false)
     private List<Item> items;
 
 }

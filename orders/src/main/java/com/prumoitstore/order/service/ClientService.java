@@ -31,10 +31,10 @@ public class ClientService {
 
 
     @Transactional
-    public String deleteClient(Integer id){
+    public void deleteClient(Integer id){
         clientRepository.deleteById(id);
-        return "client removed!!" + id;
     }
+
     @Transactional
     public Client updateClient( Integer id,Client client){
         Client existingClient = clientRepository.findById(id).get();

@@ -31,7 +31,7 @@ public class Client implements Serializable {
 
     @Nullable
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "client_id")
     private Address address;
 
 }

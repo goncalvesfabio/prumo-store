@@ -23,8 +23,8 @@ public class Item implements Serializable {
     private Integer id;
     private Integer quantity;
     private Double price;
-
     @ManyToOne
-    @JoinColumn(name="order_detail_id")
+    @JoinColumn(name = "orderDetail_id", nullable = true)
     private OrderDetail orderDetail;
+
 }

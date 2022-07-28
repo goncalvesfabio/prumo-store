@@ -29,9 +29,8 @@ public class Client implements Serializable {
     private String phone;
     private String nif;
 
-    @Nullable
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id")
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "address_id")
     private Address address;
 
 }

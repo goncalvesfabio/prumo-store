@@ -7,12 +7,19 @@ import com.prumoitstore.order.repository.OrderDetailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrderDetailService {
 
     private final OrderDetailRepository orderDetailRepository;
-    private final ClientRepository clientRepository;
+
+
+    public List<OrderDetail> findAll(){
+        return orderDetailRepository.findAll();
+    }
+
     public OrderDetail addNewOrder(OrderDetail orderDetail) {
             return orderDetailRepository.save(orderDetail);
     }

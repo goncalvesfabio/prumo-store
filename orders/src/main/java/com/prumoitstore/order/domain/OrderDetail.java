@@ -34,7 +34,7 @@ public class OrderDetail implements Serializable {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private Client client;
 /*

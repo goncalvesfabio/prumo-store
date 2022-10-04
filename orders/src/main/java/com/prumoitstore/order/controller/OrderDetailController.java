@@ -20,7 +20,6 @@ import java.util.List;
 public class OrderDetailController {
 
     private final OrderDetailService orderDetailService;
-
     /*
     @PostMapping("/orders")
    public ResponseEntity<String>testOrder(@RequestBody String orderDetail){
@@ -28,18 +27,14 @@ public class OrderDetailController {
         return  new ResponseEntity<>(orders, HttpStatus.OK);
     }
 */
-
-
     @PostMapping("/orders")
     public ResponseEntity<OrderDetail> creatingOrder(@RequestBody OrderDetail orderDetail){
         orderDetailService.addNewOrder(orderDetail);
         return new ResponseEntity<>(orderDetail, HttpStatus.CREATED);
     }
-
     @GetMapping("/orders")
     public ResponseEntity<List<OrderDetail>> findAllOrders(){
         List<OrderDetail> orders = orderDetailService.findAll();
-        return new ResponseEntity<List<OrderDetail>>(orders, HttpStatus.OK);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
-
 }
